@@ -1,0 +1,12 @@
+---
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Echo value being used for repo_dir
+      debug: var=repo_dir
+
+    - script: 'trigger_local_update.sh'
+      args:
+        chdir: "{{ repo_dir }}"
