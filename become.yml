@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   become: yes
+  gather_facts: false
   tasks:
     - name: Become
       command: id
