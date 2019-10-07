@@ -2,3 +2,4 @@
 
 - src: yatesr.timezone
 - src: grog.debug-variable
+- src: geerlingguy.docker
