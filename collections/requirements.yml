@@ -1,4 +1,4 @@
 collections:
   - name: "chrismeyersfsu.test_things"
   - name: "anshulbehl.f5_modules"
-    version: "0.0.9-alpha.build2"
+    version: "0.9.0-alpha.build2"
