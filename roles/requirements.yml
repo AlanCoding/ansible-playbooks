@@ -1,2 +1,4 @@
-- src: https://github.com/ansible/test-playbooks
+- src: yatesr.timezone
+- src: https://github.com/alancoding/test-playbooks
   scm: git
+  version: role_meta
