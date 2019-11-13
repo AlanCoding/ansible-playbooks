@@ -1,4 +1,3 @@
-ansible-playbooks
-=================
+### testing callback plugins
 
-A collection of basic playbooks designed to aid in testing ansible functionality.
+ANSIBLE_STDOUT_CALLBACK
