@@ -1,11 +1,11 @@
 - name: Create an SCM Credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: SCM Credential for JT
     organization: Default
     kind: scm
 
 - name: Create a Demo Project
-  tower_project:
+  awx.awx.tower_project:
     name: Job Template Test Project
     organization: Default
     state: present
@@ -29,7 +29,7 @@
   delay: 1
 
 - name: Create a Job Template
-  tower_job_template:
+  awx.awx.tower_job_template:
     name: "hello-world {{ lookup('randstr') }}"
     project: Job Template Test Project
     inventory: Demo Inventory

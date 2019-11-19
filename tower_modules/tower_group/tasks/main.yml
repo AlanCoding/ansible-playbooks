@@ -14,13 +14,13 @@
     inv_name: "inv-for-group-{{ lookup('randstr') }}"
 
 - name: Create an Inventory
-  tower_inventory:
+  awx.awx.tower_inventory:
     name: "{{ inv_name }}"
     organization: Default
     state: present
 
 - name: Create a Group
-  tower_group:
+  awx.awx.tower_group:
     name: Some Group
     inventory: "{{ inv_name }}"
     state: present
@@ -33,7 +33,7 @@
       - "result is changed"
 
 - name: Delete a Group
-  tower_group:
+  awx.awx.tower_group:
     name: Some Group
     inventory: "{{ inv_name }}"
     state: absent
@@ -44,7 +44,7 @@
       - "result is changed"
 
 - name: Check module fails with correct msg
-  tower_group:
+  awx.awx.tower_group:
     name: test-group
     description: Group Description
     inventory: test-non-existing-inventory

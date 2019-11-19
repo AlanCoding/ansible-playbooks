@@ -1,5 +1,5 @@
 - name: Create a User
-  tower_user:
+  awx.awx.tower_user:
     first_name: Joe
     last_name: User
     username: joe
@@ -13,7 +13,7 @@
       - "result is changed"
 
 - name: Add Joe to the update role of the default Project
-  tower_role:
+  awx.awx.tower_role:
     user: joe
     role: update
     project: Demo Project
@@ -28,7 +28,7 @@
       - "result is changed"
 
 - name: Delete a User
-  tower_user:
+  awx.awx.tower_user:
     username: joe
     email: joe@example.org
     state: absent

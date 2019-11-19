@@ -1,5 +1,5 @@
 - name: Test no parameters
-  tower_send:
+  awx.awx.tower_send:
   register: result
   ignore_errors: yes
 
@@ -17,7 +17,7 @@
         email: "john.westcott.iv@redhat.com"
 
 - name: Test a new import of asset
-  tower_send:
+  awx.awx.tower_send:
     assets: "{{ user | to_json() }}"
   register: result
 
@@ -26,7 +26,7 @@
       - "result is changed"
 
 - name: Test an existing import of asset
-  tower_send:
+  awx.awx.tower_send:
     assets: "{{ user | to_json() }}"
   register: result
 
@@ -36,7 +36,7 @@
       - "result is not changed"
 
 - name: Change an existing asset
-  tower_send:
+  awx.awx.tower_send:
     assets: "{{ user | combine({'last_name': 'Westcott IV'}) | to_json() }}"
   register: result
 
@@ -45,7 +45,7 @@
       - "result is changed"
 
 - name: Ensure the organization is not created
-  tower_organization:
+  awx.awx.tower_organization:
     name: "Red Hat"
     state: absent
 
@@ -66,7 +66,7 @@
     content: "{{ organization | to_nice_json() }}"
 
 - name: Create org via files
-  tower_send:
+  awx.awx.tower_send:
     files: "{{ my_temp_file.path }}"
   register: result
 

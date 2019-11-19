@@ -1,5 +1,5 @@
 - name: Launch a Job Template
-  tower_job_launch:
+  awx.awx.tower_job_launch:
     job_template: "Demo Job Template"
     inventory: "Demo Inventory"
     credential: "Demo Credential"
@@ -11,12 +11,12 @@
       - "job.status == 'pending'"
 
 - name: Wait for the Job to finish
-  tower_job_wait:
+  awx.awx.tower_job_wait:
     job_id: "{{ job.id }}"
     timeout: 60
 
 - name: Check module fails with correct msg
-  tower_job_wait:
+  awx.awx.tower_job_wait:
     job_id: "99999999"
   register: result
   ignore_errors: true

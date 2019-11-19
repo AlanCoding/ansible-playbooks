@@ -1,12 +1,12 @@
 ---
 - name: Create an SCM Credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: SCM Credential for JT
     organization: Default
     kind: scm
 
 - name: Create a Demo Project
-  tower_project:
+  awx.awx.tower_project:
     name: Job Template Test Project
     organization: Default
     state: present
@@ -30,7 +30,7 @@
   delay: 1
 
 - name: Create a Job Template
-  tower_job_template:
+  awx.awx.tower_job_template:
     name: my-job-1
     project: Job Template Test Project
     inventory: Demo Inventory
@@ -40,7 +40,7 @@
     state: present
 
 - name: Create a second Job Template
-  tower_job_template:
+  awx.awx.tower_job_template:
     name: my-job-2
     project: Job Template Test Project
     inventory: Demo Inventory
@@ -50,7 +50,7 @@
     state: present
 
 - name: Add a Survey to second Job Template
-  tower_job_template:
+  awx.awx.tower_job_template:
     name: my-job-2
     project: Job Template Test Project
     inventory: Demo Inventory
@@ -63,7 +63,7 @@
 
 
 - name: Create a workflow job template
-  tower_workflow_template:
+  awx.awx.tower_workflow_template:
     name: my-workflow
     schema: '[{"success": [{"job_template": "my-job-1"}], "job_template": "my-job-2"}]'
   register: result
@@ -73,7 +73,7 @@
       - "result is changed"
 
 - name: Delete a workflow job template
-  tower_workflow_template:
+  awx.awx.tower_workflow_template:
     name: my-workflow
     state: absent
   register: result
@@ -83,7 +83,7 @@
       - "result is changed"
 
 - name: Check module fails with correct msg
-  tower_workflow_template:
+  awx.awx.tower_workflow_template:
     name: my-workflow
     organization: Non Existing Organization
     schema: '[{"success": [{"job_template": "my-job-1"}], "job_template": "my-job-2"}]'

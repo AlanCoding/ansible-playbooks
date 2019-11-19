@@ -1,5 +1,5 @@
 - name: Set the value of AWX_PROOT_SHOW_PATHS
-  tower_settings:
+  awx.awx.tower_settings:
     name: "AWX_PROOT_SHOW_PATHS"
     value:
       - '/var/lib/awx/projects/'
@@ -11,7 +11,7 @@
       - "result is changed"
 
 - name: Revert the value of AWX_PROOT_SHOW_PATHS to its default
-  tower_settings:
+  awx.awx.tower_settings:
     name: "AWX_PROOT_SHOW_PATHS"
     value: []
   register: result
@@ -21,7 +21,7 @@
       - "result is changed"
 
 - name: Set the value of AWX_PROOT_BASE_PATH
-  tower_settings:
+  awx.awx.tower_settings:
     name: AWX_PROOT_BASE_PATH
     value: "/tmp/newtmp"
   register: result
@@ -31,7 +31,7 @@
       - "result.value == '/tmp/newtmp'"
 
 - name: Revert the value of AWX_PROOT_BASE_PATH to its default
-  tower_settings:
+  awx.awx.tower_settings:
     name: AWX_PROOT_BASE_PATH
     value: "/tmp"
   register: result

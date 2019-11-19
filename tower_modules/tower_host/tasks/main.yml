@@ -14,13 +14,13 @@
     inv_name: "inv-for-group-{{ lookup('randstr') }}"
 
 - name: Create an Inventory
-  tower_inventory:
+  awx.awx.tower_inventory:
     name: "{{ inv_name }}"
     organization: Default
     state: present
 
 - name: Create a Host
-  tower_host:
+  awx.awx.tower_host:
     name: "some-host"
     inventory: "{{ inv_name }}"
     state: present
@@ -32,7 +32,7 @@
       - "result is changed"
 
 - name: Delete a Host
-  tower_host:
+  awx.awx.tower_host:
     name: "some-host"
     inventory: "{{ inv_name }}"
     state: absent
@@ -43,7 +43,7 @@
       - "result is changed"
 
 - name: Check module fails with correct msg
-  tower_host:
+  awx.awx.tower_host:
     name: test-host
     description: Host Description
     inventory: test-non-existing-inventory

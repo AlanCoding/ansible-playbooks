@@ -1,6 +1,6 @@
 # Test behaviour common to all tower modules
 - name: Check that SSL is available
-  tower_organization:
+  awx.awx.tower_organization:
     name: Default
   register: result
 
@@ -9,7 +9,7 @@
     that: result is not changed
 
 - name: Check that SSL is available and verify_ssl is enabled (task must fail)
-  tower_organization:
+  awx.awx.tower_organization:
     name: Default
   environment:
     TOWER_CERTIFICATE: /dev/null  # force check failure
@@ -37,7 +37,7 @@
 
 - block:
     - name: Check that verify_ssl is disabled (task must not fail)
-      tower_organization:
+      awx.awx.tower_organization:
         name: Default
       environment:
         TOWER_CERTIFICATE: /dev/null  # should not fail because verify_ssl is disabled

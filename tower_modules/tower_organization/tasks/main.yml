@@ -1,5 +1,5 @@
 - name: confirm Tower version w/ check mode
-  tower_organization:
+  awx.awx.tower_organization:
     name: Default
   check_mode: yes
   register: result
@@ -9,5 +9,5 @@
       - "result.tower_version is defined"
 
 - name: Make sure the default Default organization exists
-  tower_organization:
+  awx.awx.tower_organization:
     name: Default

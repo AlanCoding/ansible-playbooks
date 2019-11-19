@@ -1,11 +1,11 @@
 - name: Create a Label
-  tower_label:
+  awx.awx.tower_label:
     name: important
     organization: Default
     state: present
 
 - name: Check module fails with correct msg
-  tower_label:
+  awx.awx.tower_label:
     name: "Test Label"
     organization: "Non existing org"
     state: present

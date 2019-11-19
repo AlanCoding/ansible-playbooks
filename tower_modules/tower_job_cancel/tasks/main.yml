@@ -1,5 +1,5 @@
 - name: Launch a Job Template
-  tower_job_launch:
+  awx.awx.tower_job_launch:
     job_template: "Demo Job Template"
     inventory: "Demo Inventory"
     credential: "Demo Credential"
@@ -11,11 +11,11 @@
       - "job.status == 'pending'"
 
 - name: Cancel the job
-  tower_job_cancel:
+  awx.awx.tower_job_cancel:
     job_id: "{{ job.id }}"
 
 - name: Check module fails with correct msg
-  tower_job_cancel:
+  awx.awx.tower_job_cancel:
     job_id: 9999999999
   register: result
   ignore_errors: true

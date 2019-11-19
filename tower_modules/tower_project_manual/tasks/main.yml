@@ -10,7 +10,7 @@
   import_tasks: create_project_dir.yml
 
 - name: Create a manual project
-  tower_project:
+  awx.awx.tower_project:
     name: "{{ project_name }}"
     organization: Default
     scm_type: manual
@@ -22,7 +22,7 @@
       - "result is changed"
 
 - name: Delete a manual project
-  tower_project:
+  awx.awx.tower_project:
     name: "{{ project_name }}"
     state: absent
   register: result

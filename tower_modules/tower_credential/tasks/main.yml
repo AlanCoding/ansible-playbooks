@@ -10,7 +10,7 @@
     ssh_key_data: "{{ lookup('file', tempdir.stdout + '/id_rsa') }}"
 
 - name: Create a User-specific credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: SSH Credential
     organization: Default
     user: admin
@@ -23,7 +23,7 @@
       - "result is changed"
 
 - name: Delete a User-specific credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: SSH Credential
     organization: Default
     user: admin
@@ -36,7 +36,7 @@
       - "result is changed"
 
 - name: Create a valid SSH credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: SSH Credential
     organization: Default
     state: present
@@ -56,7 +56,7 @@
       - "result is changed"
 
 - name: Create a valid SSH credential from lookup source
-  tower_credential:
+  awx.awx.tower_credential:
     name: SSH Credential from lookup source
     organization: Default
     state: present
@@ -76,7 +76,7 @@
       - "result is changed"
 
 - name: Create a valid SSH credential from file source
-  tower_credential:
+  awx.awx.tower_credential:
     name: SSH Credential from file source
     organization: Default
     state: present
@@ -98,7 +98,7 @@
       - "'ssh_key_data should be a string, not a path to a file.' in result.deprecations[0].msg"
 
 - name: Create an invalid SSH credential (passphrase required)
-  tower_credential:
+  awx.awx.tower_credential:
     name: SSH Credential
     organization: Default
     state: present
@@ -114,7 +114,7 @@
       - "'must be set when SSH key is encrypted' in result.msg"
 
 - name: Create an invalid SSH credential (Organization not found)
-  tower_credential:
+  awx.awx.tower_credential:
     name: SSH Credential
     organization: Missing Organization
     state: present
@@ -129,7 +129,7 @@
       - "'The requested object could not be found' in result.msg"
 
 - name: Delete an SSH credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: SSH Credential
     organization: Default
     state: absent
@@ -141,7 +141,7 @@
       - "result is changed"
 
 - name: Create a valid Vault credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Vault Credential
     organization: Default
     state: present
@@ -155,7 +155,7 @@
       - "result is changed"
 
 - name: Create a valid Vault credential w/ kind=ssh (deprecated)
-  tower_credential:
+  awx.awx.tower_credential:
     name: Vault Credential
     organization: Default
     state: present
@@ -169,7 +169,7 @@
       - "result is changed"
 
 - name: Delete a Vault credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Vault Credential
     organization: Default
     state: absent
@@ -181,7 +181,7 @@
       - "result is changed"
 
 - name: Create a valid Network credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Network Credential
     organization: Default
     state: present
@@ -197,7 +197,7 @@
       - "result is changed"
 
 - name: Delete a Network credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Network Credential
     organization: Default
     state: absent
@@ -209,7 +209,7 @@
       - "result is changed"
 
 - name: Create a valid SCM credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: SCM Credential
     organization: Default
     state: present
@@ -225,7 +225,7 @@
       - "result is changed"
 
 - name: Delete an SCM credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: SCM Credential
     organization: Default
     state: absent
@@ -237,7 +237,7 @@
       - "result is changed"
 
 - name: Create a valid AWS credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: AWS Credential
     organization: Default
     state: present
@@ -252,7 +252,7 @@
       - "result is changed"
 
 - name: Delete an AWS credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: AWS Credential
     organization: Default
     state: absent
@@ -264,7 +264,7 @@
       - "result is changed"
 
 - name: Create a valid VMWare credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: VMWare Credential
     organization: Default
     state: present
@@ -279,7 +279,7 @@
       - "result is changed"
 
 - name: Delete an VMWare credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: VMWare Credential
     organization: Default
     state: absent
@@ -291,7 +291,7 @@
       - "result is changed"
 
 - name: Create a valid Satellite6 credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Satellite6 Credential
     organization: Default
     state: present
@@ -306,7 +306,7 @@
       - "result is changed"
 
 - name: Delete a Satellite6 credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Satellite6 Credential
     organization: Default
     state: absent
@@ -318,7 +318,7 @@
       - "result is changed"
 
 - name: Create a valid CloudForms credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: CloudForms Credential
     organization: Default
     state: present
@@ -333,7 +333,7 @@
       - "result is changed"
 
 - name: Delete a CloudForms credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: CloudForms Credential
     organization: Default
     state: absent
@@ -345,7 +345,7 @@
       - "result is changed"
 
 - name: Create a valid GCE credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: GCE Credential
     organization: Default
     state: present
@@ -360,7 +360,7 @@
       - "result is changed"
 
 - name: Delete a GCE credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: GCE Credential
     organization: Default
     state: absent
@@ -372,7 +372,7 @@
       - "result is changed"
 
 - name: Create a valid AzureRM credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: AzureRM Credential
     organization: Default
     state: present
@@ -387,7 +387,7 @@
       - "result is changed"
 
 - name: Create a valid AzureRM credential with a tenant
-  tower_credential:
+  awx.awx.tower_credential:
     name: AzureRM Credential
     organization: Default
     state: present
@@ -403,7 +403,7 @@
       - "result is changed"
 
 - name: Delete an AzureRM credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: AzureRM Credential
     organization: Default
     state: absent
@@ -415,7 +415,7 @@
       - "result is changed"
 
 - name: Create a valid OpenStack credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: OpenStack Credential
     organization: Default
     state: present
@@ -432,7 +432,7 @@
       - "result is changed"
 
 - name: Delete a OpenStack credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: OpenStack Credential
     organization: Default
     state: absent
@@ -444,7 +444,7 @@
       - "result is changed"
 
 - name: Create a valid RHV credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: RHV Credential
     organization: Default
     state: present
@@ -459,7 +459,7 @@
       - "result is changed"
 
 - name: Delete an RHV credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: RHV Credential
     organization: Default
     state: absent
@@ -471,7 +471,7 @@
       - "result is changed"
 
 - name: Create a valid Insights credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Insights Credential
     organization: Default
     state: present
@@ -485,7 +485,7 @@
       - "result is changed"
 
 - name: Delete an Insights credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Insights Credential
     organization: Default
     state: absent
@@ -497,7 +497,7 @@
       - "result is changed"
 
 - name: Create a valid Tower-to-Tower credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Tower Credential
     organization: Default
     state: present
@@ -512,7 +512,7 @@
       - "result is changed"
 
 - name: Delete a Tower-to-Tower credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: Tower Credential
     organization: Default
     state: absent
@@ -524,7 +524,7 @@
       - "result is changed"
 
 - name: Check module fails with correct msg
-  tower_credential:
+  awx.awx.tower_credential:
     name: test-credential
     description: Credential Description
     kind: ssh

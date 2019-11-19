@@ -1,5 +1,5 @@
 - name: Attempt to add a Tower team to a non-existant Organization
-  tower_team:
+  awx.awx.tower_team:
     name: Test Team
     organization: Missing Organization
     state: present
@@ -12,7 +12,7 @@
       - "'The requested object could not be found.' in result.msg"
 
 - name: Create a Tower team
-  tower_team:
+  awx.awx.tower_team:
     name: Test Team
     organization: Default
   register: result
@@ -22,7 +22,7 @@
       - "result is changed"
 
 - name: Delete a Tower team
-  tower_team:
+  awx.awx.tower_team:
     name: Test Team
     organization: Default
     state: absent
@@ -33,7 +33,7 @@
       - "result is changed"
 
 - name: Check module fails with correct msg
-  tower_team:
+  awx.awx.tower_team:
     name: Test Team
     organization: Non Existing Org
     state: present

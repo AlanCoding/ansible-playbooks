@@ -1,5 +1,5 @@
 - name: Export all Tower assets
-  tower_receive:
+  awx.awx.tower_receive:
     all: True
   register: result
 

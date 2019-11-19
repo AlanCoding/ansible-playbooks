@@ -1,5 +1,5 @@
 - name: Create Slack notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification1
     organization: Default
     notification_type: slack
@@ -14,7 +14,7 @@
       - result is changed
 
 - name: Delete Slack notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification1
     organization: Default
     notification_type: slack
@@ -26,7 +26,7 @@
       - result is changed
 
 - name: Add webhook notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification2
     organization: Default
     notification_type: webhook
@@ -41,7 +41,7 @@
       - result is changed
 
 - name: Delete webhook notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification2
     organization: Default
     notification_type: webhook
@@ -53,7 +53,7 @@
       - result is changed
 
 - name: Add email notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification3
     organization: Default
     notification_type: email
@@ -74,7 +74,7 @@
       - result is changed
 
 - name: Delete email notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification3
     organization: Default
     notification_type: email
@@ -86,7 +86,7 @@
       - result is changed
 
 - name: Add twilio notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification4
     organization: Default
     notification_type: twilio
@@ -103,7 +103,7 @@
       - result is changed
 
 - name: Delete twilio notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification4
     organization: Default
     notification_type: twilio
@@ -115,7 +115,7 @@
       - result is changed
 
 - name: Add PagerDuty notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification5
     organization: Default
     notification_type: pagerduty
@@ -131,7 +131,7 @@
       - result is changed
 
 - name: Delete PagerDuty notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification5
     organization: Default
     notification_type: pagerduty
@@ -143,7 +143,7 @@
       - result is changed
 
 - name: Add HipChat notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification6
     organization: Default
     notification_type: hipchat
@@ -162,7 +162,7 @@
       - result is changed
 
 - name: Delete HipChat notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification6
     organization: Default
     notification_type: hipchat
@@ -174,7 +174,7 @@
       - result is changed
 
 - name: Add IRC notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification7
     organization: Default
     notification_type: irc
@@ -193,7 +193,7 @@
       - result is changed
 
 - name: Delete IRC notification
-  tower_notification:
+  awx.awx.tower_notification:
     name: notification7
     organization: Default
     notification_type: irc

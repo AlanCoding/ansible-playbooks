@@ -1,5 +1,5 @@
 - name: Create a User
-  tower_user:
+  awx.awx.tower_user:
     first_name: Joe
     last_name: User
     username: joe
@@ -13,7 +13,7 @@
       - "result is changed"
 
 - name: Delete a User
-  tower_user:
+  awx.awx.tower_user:
     username: joe
     email: joe@example.org
     state: absent
@@ -24,7 +24,7 @@
       - "result is changed"
 
 - name: Create an Auditor
-  tower_user:
+  awx.awx.tower_user:
     first_name: Joe
     last_name: Auditor
     username: joe
@@ -39,7 +39,7 @@
       - "result is changed"
 
 - name: Delete an Auditor
-  tower_user:
+  awx.awx.tower_user:
     username: joe
     email: joe@example.org
     state: absent
@@ -50,7 +50,7 @@
       - "result is changed"
 
 - name: Create a Superuser
-  tower_user:
+  awx.awx.tower_user:
     first_name: Joe
     last_name: Super
     username: joe
@@ -65,7 +65,7 @@
       - "result is changed"
 
 - name: Delete a Superuser
-  tower_user:
+  awx.awx.tower_user:
     username: joe
     email: joe@example.org
     state: absent
@@ -76,7 +76,7 @@
       - "result is changed"
 
 - name: Test tower SSL parameter
-  tower_user:
+  awx.awx.tower_user:
     first_name: Joe
     last_name: User
     username: joe
@@ -84,7 +84,7 @@
     email: joe@example.org
     state: present
     validate_certs: true
-    tower_host: http://foo.invalid
+    awx.awx.tower_host: http://foo.invalid
   ignore_errors: true
   register: result
 

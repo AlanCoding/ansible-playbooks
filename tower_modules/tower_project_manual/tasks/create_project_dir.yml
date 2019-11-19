@@ -19,7 +19,7 @@
       ansible_connection: local
 
 - name: create an unused SSH / Machine credential
-  tower_credential:
+  awx.awx.tower_credential:
     name: dummy
     kind: ssh
     ssh_key_data: |
